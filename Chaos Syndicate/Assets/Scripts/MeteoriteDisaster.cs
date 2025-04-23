@@ -19,6 +19,14 @@ public class MeteoriteDisaster:Disaster
 
         rb.AddForce(force*rb.mass,ForceMode.Impulse);
         initialSpeed=force/rb.mass;
+
+        //add random rotation force
+        Vector3 randomTorque=new Vector3(
+            Random.Range(-1f,1f),
+            Random.Range(-1f,1f),
+            Random.Range(-1f,1f)).normalized*Random.Range(70f,400);
+
+        rb.AddTorque(randomTorque, ForceMode.Impulse);
     }
     /*
         the main function when the object hits something

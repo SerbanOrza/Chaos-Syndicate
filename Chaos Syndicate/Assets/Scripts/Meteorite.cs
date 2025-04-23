@@ -5,12 +5,13 @@ public class Meteorite : MonoBehaviour
     public Disaster disaster;
     public GameObject partsObject;
     public Rigidbody rb;
+    public GameObject[] particles;
     void Awake()
     {
         //prepare the meteorite
         if(rb==null)
             rb=gameObject.GetComponent<Rigidbody>();
-        disaster=new MeteoriteDisaster(gameObject,partsObject,rb);
+        disaster=new MeteoriteDisaster(gameObject,partsObject,rb,particles);
     }
     void Start()
     {
@@ -21,6 +22,8 @@ public class Meteorite : MonoBehaviour
     {
         
     }
+    public void launch(Vector3 targetPos)
+    {}
     
     private void OnCollisionEnter(Collision other)
     {

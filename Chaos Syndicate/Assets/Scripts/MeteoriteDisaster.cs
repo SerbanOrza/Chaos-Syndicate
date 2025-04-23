@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class MeteoriteDisaster:Disaster
 {
-    public MeteoriteDisaster(GameObject thisObj,GameObject partsObject,Rigidbody rb)
-        :base(thisObj,partsObject,rb)
+    public MeteoriteDisaster(GameObject thisObj,GameObject partsObject,Rigidbody rb,GameObject[] particles)
+        :base(thisObj,partsObject,rb,particles)
     {
     }
-    public override void launch()
+    public override void launch(Vector3 targetPos)
     {}
     /*
         the main function when the object hits something
@@ -17,6 +17,9 @@ public class MeteoriteDisaster:Disaster
             return;
         destroyed=true;
         breakIntoParts();
+        //remove tails
+        foreach(GameObject g in particles)
+            MyUtil.instance.addToTrash(g,15);
         //create explosion
         GameObject.Destroy(thisObj);
     }

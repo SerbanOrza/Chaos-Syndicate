@@ -6,8 +6,20 @@ public class MeteoriteDisaster:Disaster
         :base(thisObj,partsObject,rb,particles)
     {
     }
-    public override void launch(Vector3 targetPos)
-    {}
+    public override void launch(float time,Vector3 targetPos)
+    {
+        Vector3 launchPos=thisObj.transform.position;
+        if(time<1f)
+            time=1f;
+        //prepare the force
+        Vector3 force;
+        force.x=(targetPos.x-launchPos.x)/time;
+        force.y=(targetPos.y-launchPos.y)/time+9.8F*time/2;
+        force.z=(targetPos.z-launchPos.z)/time;
+
+        rb.AddForce(force*rb.mass,ForceMode.Impulse);
+        initialSpeed=force/rb.mass;
+    }
     /*
         the main function when the object hits something
     */

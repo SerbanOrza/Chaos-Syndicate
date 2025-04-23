@@ -22,8 +22,10 @@ public class Meteorite : MonoBehaviour
     {
         
     }
-    public void launch(Vector3 targetPos)
-    {}
+    public void launch(float time,Vector3 targetPos)
+    {
+        disaster.launch(time,targetPos);
+    }
     
     private void OnCollisionEnter(Collision other)
     {

@@ -6,7 +6,9 @@ public abstract class Disaster:Destructible
     protected GameObject partsObject;
     protected Rigidbody rb;
     protected GameObject[] particles;//fire tails
+
     protected bool destroyed;
+    protected Vector3 initialSpeed;
     public Disaster(GameObject thisObj,GameObject partsObject,Rigidbody rb,GameObject[] particles)
     {
         this.thisObj=thisObj;
@@ -22,7 +24,7 @@ public abstract class Disaster:Destructible
     {
         Debug.Log("impact with disaster");
     }
-    public virtual void launch(Vector3 targetPos)
+    public virtual void launch(float time,Vector3 targetPos)
     {
         Debug.Log("launch");
     }

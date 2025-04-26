@@ -40,6 +40,12 @@ public class MyUtil : MonoBehaviour
             if(r!=null)
             {
                 //if obj is a struct, break it
+                Destructible d=near.GetComponent<Destructible>();
+                if(d!=null)
+                {
+                    Debug.Log("detected a destructible");
+                    d.impact();
+                }
             }
         }
         //second wave

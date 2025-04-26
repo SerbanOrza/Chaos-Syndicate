@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class MeteoriteDisaster:Disaster
 {
-    public MeteoriteDisaster(GameObject thisObj,GameObject partsObject,Rigidbody rb,GameObject[] particles)
-        :base(thisObj,partsObject,rb,particles)
+    public MeteoriteDisaster(GameObject thisObj,GameObject partsObject,Rigidbody rb,GameObject[] particles,DisasterData data)
+        :base(thisObj,partsObject,rb,particles,data)
     {
     }
     public override void launch(float time,Vector3 targetPos)
@@ -41,6 +41,10 @@ public class MeteoriteDisaster:Disaster
         foreach(GameObject g in particles)
             MyUtil.instance.addToTrash(g,15);
         //create explosion
+        float velocityMagnitude=rb.linearVelocity.magnitude;
+        float kineticEnergy=0.5f*rb.mass*velocityMagnitude*velocityMagnitude;
+        float explosionForce=kineticEnergy*0.35f;//0.35 is a multiplier
+        MyUtil.instance.applyExplosionForce(thisObj.transform.position,data.expRadiusSmall,data.expRadiusBig,explosionForce);
         GameObject.Destroy(thisObj);
     }
     private void breakIntoParts()

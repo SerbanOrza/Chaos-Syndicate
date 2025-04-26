@@ -6,6 +6,7 @@ public class Meteorite : MonoBehaviour
     public GameObject partsObject;
     public Rigidbody rb;
     public GameObject[] particles;
+    public float expRadiusSmall,expRadiusBig;
     void Awake()
     {
         //prepare the meteorite
@@ -13,7 +14,11 @@ public class Meteorite : MonoBehaviour
         transform.localScale=new Vector3(scale,scale,scale);
         if(rb==null)
             rb=gameObject.GetComponent<Rigidbody>();
-        disaster=new MeteoriteDisaster(gameObject,partsObject,rb,particles);
+
+        DisasterData data=ScriptableObject.CreateInstance<DisasterData>();
+        data.initialize(false,expRadiusSmall,expRadiusBig);
+
+        disaster=new MeteoriteDisaster(gameObject,partsObject,rb,particles,data);
     }
     void Start()
     {

@@ -8,13 +8,15 @@ public abstract class Disaster:Destructible
     protected GameObject[] particles;//fire tails
 
     protected bool destroyed;
+    protected DisasterData data;
     protected Vector3 initialSpeed;
-    public Disaster(GameObject thisObj,GameObject partsObject,Rigidbody rb,GameObject[] particles)
+    public Disaster(GameObject thisObj,GameObject partsObject,Rigidbody rb,GameObject[] particles,DisasterData data)
     {
         this.thisObj=thisObj;
         this.partsObject=partsObject;
         this.rb=rb;
         this.particles=particles;
+        this.data=data;
         this.destroyed=false;
 
         if(this.partsObject!=null)

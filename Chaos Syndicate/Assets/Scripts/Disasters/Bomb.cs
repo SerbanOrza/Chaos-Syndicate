@@ -14,7 +14,7 @@ public class Bomb : MonoBehaviour
             rb=gameObject.GetComponent<Rigidbody>();
 
         DisasterData data=ScriptableObject.CreateInstance<DisasterData>();
-        data.initialize(false,expRadiusSmall,expRadiusBig,200);
+        data.initialize(false,expRadiusSmall,expRadiusBig,expForce);
 
         disaster=new BombDisaster(gameObject,partsObject,rb,particles,data);
     }

@@ -7,6 +7,7 @@ public class PlayerInteraction : MonoBehaviour
 {
     public GameObject testObj;
     public GameObject[] disasters;//for debug
+    private int a=0;
     public Transform target;
     public CinematicCameraFollow cm;
     void Start()
@@ -26,6 +27,8 @@ public class PlayerInteraction : MonoBehaviour
             {
                 // position is hit.point
                 Vector3 pos=new Vector3(Random.Range(-100f,101f),Random.Range(100f, 201f),Random.Range(-100f, 101f));
+                if(a==1)
+                    pos=hit.point;
                 GameObject x=Instantiate(testObj,pos,Quaternion.identity);
                 Meteorite m=x.GetComponent<Meteorite>();
                 cm.target=x.transform;
@@ -44,6 +47,7 @@ public class PlayerInteraction : MonoBehaviour
     }
     public void changeDisaster(int k)
     {
+        a=k;
         if(k==0)
             testObj=disasters[0];
         else

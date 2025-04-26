@@ -20,6 +20,8 @@ public class DestructibleStructure : MonoBehaviour,Destructible
         //destroy other parts
         foreach(DestructibleStructure d in destroyNext)
             d.impact();
+        foreach(Transform p in parts.transform)
+            MyUtil.instance.addToTrash(p.gameObject,15);
         Destroy(gameObject);
     }
 }

@@ -3527,7 +3527,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parts: {fileID: 4386410743060865243}
-  destroyNext: []
+  destroyNext:
+  - {fileID: 2706495709662487963}
+  - {fileID: 8669014805548862870}
+  - {fileID: 6573647736201154248}
+  - {fileID: 2209197398078173226}
+  - {fileID: 3339349885281447499}
 --- !u!1 &4053010541994761374
 GameObject:
   m_ObjectHideFlags: 0
@@ -4465,7 +4470,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parts: {fileID: 4386410743075752463}
-  destroyNext: []
+  destroyNext:
+  - {fileID: 6573647736201154248}
 --- !u!1 &4911038291983686244
 GameObject:
   m_ObjectHideFlags: 0

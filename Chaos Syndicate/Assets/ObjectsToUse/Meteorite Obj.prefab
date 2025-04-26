@@ -22865,9 +22865,8 @@ MonoBehaviour:
   particles:
   - {fileID: 1946555142529944468}
   - {fileID: 4889218483529342435}
-  expRadiusSmall: 50
-  expRadiusBig: 150
-  expForce: 1000
+  expRadiusSmall: 22
+  expRadiusBig: 30
 --- !u!33 &7104872853952799773
 MeshFilter:
   m_ObjectHideFlags: 0

@@ -26,7 +26,7 @@ public class MeteoriteDisaster:Disaster
             Random.Range(-1f,1f),
             Random.Range(-1f,1f)).normalized*Random.Range(70f,400);
 
-        rb.AddTorque(randomTorque, ForceMode.Impulse);
+        rb.AddTorque(randomTorque,ForceMode.Impulse);
     }
     /*
         the main function when the object hits something

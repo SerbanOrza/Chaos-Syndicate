@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 public class PlayerInteraction : MonoBehaviour
 {
     public GameObject testObj;
+    public GameObject[] disasters;//for debug
+    private int a=0;
     public Transform target;
     public CinematicCameraFollow cm;
     void Start()
@@ -24,12 +26,14 @@ public class PlayerInteraction : MonoBehaviour
            if(Physics.Raycast(ray,out hit,1000)) //max distance allowed is 1000
             {
                 // position is hit.point
-                Vector3 pos=new Vector3(Random.Range(100f,201f),Random.Range(100f, 201f),Random.Range(100f, 201f));
+                Vector3 pos=new Vector3(Random.Range(-100f,101f),Random.Range(100f, 201f),Random.Range(-100f, 101f));
+                if(a==1)
+                    pos=hit.point;
                 GameObject x=Instantiate(testObj,pos,Quaternion.identity);
                 Meteorite m=x.GetComponent<Meteorite>();
                 cm.target=x.transform;
                 if(m!=null)
-                    m.launch(5,new Vector3(0,0,0));//hit.point);
+                    m.launch(5,hit.point);
             }
         }
     }
@@ -40,5 +44,13 @@ public class PlayerInteraction : MonoBehaviour
         #else
             return Input.GetMouseButtonDown(0);
         #endif
+    }
+    public void changeDisaster(int k)
+    {
+        a=k;
+        if(k==0)
+            testObj=disasters[0];
+        else
+            testObj=disasters[1];
     }
 }

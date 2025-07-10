@@ -4,6 +4,7 @@ public class MyUtil : MonoBehaviour
 {
     public static MyUtil instance;
     public Transform trashPoint;
+    public Transform allGroupsPoint;
     public LayerMask destructibleLayerMask;
     void Awake()
     {
@@ -25,6 +26,10 @@ public class MyUtil : MonoBehaviour
         Destroy(g,t);
         g.transform.SetParent(trashPoint);
     }
+    public void addGroupToParent(GameObject g)
+    {
+        g.transform.SetParent(allGroupsPoint);
+    }
     public void applyExplosionForce(Vector3 expPos,float expRadiusSmall,float expRadiusBig,float expForce,float damage=0)
     {
         //there are 2 waves.
@@ -44,7 +49,7 @@ public class MyUtil : MonoBehaviour
                 if(d!=null)
                 {
                     Debug.Log("detected a destructible");
-                    d.impact();
+                    d.impact(damage);
                 }
             }
         }

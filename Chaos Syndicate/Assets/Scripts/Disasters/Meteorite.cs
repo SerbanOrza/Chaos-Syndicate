@@ -7,6 +7,7 @@ public class Meteorite : MonoBehaviour
     public Rigidbody rb;
     public GameObject[] particles;
     public float expRadiusSmall,expRadiusBig;
+    public float damage = 250;
     void Awake()
     {
         //prepare the meteorite
@@ -16,7 +17,7 @@ public class Meteorite : MonoBehaviour
             rb=gameObject.GetComponent<Rigidbody>();
 
         DisasterData data=ScriptableObject.CreateInstance<DisasterData>();
-        data.initialize(false,expRadiusSmall,expRadiusBig);
+        data.initialize(false,expRadiusSmall,expRadiusBig,0,damage); //this 0 is a dummy value. It does not matter.
 
         disaster=new MeteoriteDisaster(gameObject,partsObject,rb,particles,data);
     }

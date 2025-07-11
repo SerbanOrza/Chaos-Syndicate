@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Drone : MonoBehaviour
+public class Drone : MonoBehaviour, Destructible
 {
     public Transform target;
     public Rigidbody rb;
@@ -16,15 +16,23 @@ public class Drone : MonoBehaviour
     public float maxSpeed = 10f;        // Maximum movement speed
     public float turnSpeed = 3f;        // How fast the drone turns to face target
     public float cannonAimSpeed = 6f;   // How fast the cannon rotates
+    public float hp=100.0f;
     private float tCrash = 0, t2=0;
     
     void FixedUpdate()
     {
-        if (!target || !rb) return;
-        if (tCrash <= 0)
-            FlyTowardTarget();
-        RotateTowardsTarget();
-        AimCannon();
+        if (target == null)
+        {
+            Land();
+            StabilizeOrientation(); // Add this to keep the drone upright
+        }
+        else
+        {
+            if (tCrash <= 0)
+                FlyTowardTarget();
+            RotateTowardsTarget();
+            AimCannon();
+        }
     }
     void Update()
     {
@@ -52,28 +60,6 @@ public class Drone : MonoBehaviour
 
         rb.AddForce(desiredAccel * rb.mass, ForceMode.Force);
     }
-    // void FlyTowardTarget2()
-    // {
-    //     Vector3 toTarget = target.position - transform.position;
-    //     Vector3 direction = toTarget.normalized;
-    //
-    //     // --- Vertical lift to stay airborne ---
-    //     Vector3 gravityComp = -Physics.gravity * rb.mass;  // Counteract gravity
-    //     Vector3 verticalLift = Vector3.up * flyForce * rb.mass; // Extra lift for flying
-    //
-    //     // --- Horizontal movement towards target ---
-    //     Vector3 horizontalDir = new Vector3(direction.x, 0f, direction.z).normalized;
-    //     Vector3 horizontalVelocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-    //
-    //     float horizontalSpeedError = maxSpeed - horizontalVelocity.magnitude;
-    //     Vector3 horizontalForce = horizontalDir * (horizontalSpeedError * flyForce);
-    //
-    //     // Combine
-    //     Vector3 totalForce = gravityComp + verticalLift + horizontalForce;
-    //
-    //     // Apply
-    //     rb.AddForce(totalForce, ForceMode.Force);
-    // }
 
     void RotateTowardsTarget()
     {
@@ -113,7 +99,31 @@ public class Drone : MonoBehaviour
         }
         Destroy(proj,10);
     }
+    void Land()
+    {
+        
+    }
+    void StabilizeOrientation()
+    {
+        Quaternion desiredRotation = Quaternion.Euler(0f, rb.rotation.eulerAngles.y, 0f);
+        rb.MoveRotation(Quaternion.Slerp(rb.rotation, desiredRotation, 5f * Time.fixedDeltaTime));
 
+        rb.angularVelocity = Vector3.Lerp(rb.angularVelocity, Vector3.zero, 4f * Time.fixedDeltaTime);
+    }
+    public void impact()
+    {
+        target = null;
+    }
+
+    public void impact(float damage)
+    {
+        hp -= damage;
+        if (hp <= 0)
+        {
+            hp = 0;
+            impact();
+        }
+    }
     private void OnCollisionEnter(Collision other)
     {
         Debug.Log(other.gameObject.name);

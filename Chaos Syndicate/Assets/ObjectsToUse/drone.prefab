@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8858468511686754427}
   - component: {fileID: 9020203193308745671}
   - component: {fileID: 7330680933523364588}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Torus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 9105336947921480918}
   - component: {fileID: 4173233949641097927}
   - component: {fileID: 544698026199782403}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 1902319279809678378}
   - component: {fileID: 2303989742102115735}
   - component: {fileID: 704453561498806854}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -339,7 +339,7 @@ GameObject:
   - component: {fileID: 5369717209625869724}
   - component: {fileID: 6557250515694246578}
   - component: {fileID: 5286682043730502693}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -447,7 +447,7 @@ GameObject:
   - component: {fileID: 2028325018542488259}
   - component: {fileID: 6188414756816498873}
   - component: {fileID: 3038160007875925194}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: drone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -493,7 +493,7 @@ MonoBehaviour:
   target: {fileID: 0}
   rb: {fileID: 3038160007875925194}
   cannon: {fileID: 8257195274308210772}
-  projectilePrefab: {fileID: 0}
+  projectilePrefab: {fileID: 6927812413356034749, guid: 9f3868d6389fbf6419ba188639336901, type: 3}
   shootPos: {fileID: 4586127393912277476}
   projectileForce: 30
   shootCooldown: 0.1
@@ -501,6 +501,7 @@ MonoBehaviour:
   maxSpeed: 10
   turnSpeed: 3
   cannonAimSpeed: 6
+  hp: 100
 --- !u!54 &3038160007875925194
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -540,7 +541,7 @@ GameObject:
   - component: {fileID: 494030388517089152}
   - component: {fileID: 1581816062578685944}
   - component: {fileID: 2393255502439716282}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -649,7 +650,7 @@ GameObject:
   - component: {fileID: 8650747480867511426}
   - component: {fileID: 3187401224804180169}
   - component: {fileID: 6091571820931139796}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Icosphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -755,7 +756,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4586127393912277476}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Shoot Position
   m_TagString: Untagged
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
@@ -789,7 +790,7 @@ GameObject:
   - component: {fileID: 8601060840592453718}
   - component: {fileID: 6772534960175341793}
   - component: {fileID: 7904656154153708676}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -898,7 +899,7 @@ GameObject:
   - component: {fileID: 4983878967105032951}
   - component: {fileID: 5261336815208243343}
   - component: {fileID: 4417186922270682350}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1007,7 +1008,7 @@ GameObject:
   - component: {fileID: 3682389103695491622}
   - component: {fileID: 4526119489192559698}
   - component: {fileID: 899094621552894624}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1116,7 +1117,7 @@ GameObject:
   - component: {fileID: 6155954674982884929}
   - component: {fileID: 1010548220355477412}
   - component: {fileID: 3546675192423754419}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}

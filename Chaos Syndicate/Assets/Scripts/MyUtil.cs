@@ -41,11 +41,11 @@ public class MyUtil : MonoBehaviour
         Collider[] colliders=Physics.OverlapSphere(expPos,expRadiusSmall,destructibleLayerMask);
         foreach(Collider near in colliders)
         {
-            Rigidbody r=near.GetComponent<Rigidbody>();
+            Rigidbody r=near.GetComponentInParent<Rigidbody>();
             if(r!=null)
             {
                 //if obj is a struct, break it
-                Destructible d=near.GetComponent<Destructible>();
+                Destructible d=near.GetComponentInParent<Destructible>();
                 if(d!=null)
                 {
                     Debug.Log("detected a destructible");
@@ -57,7 +57,7 @@ public class MyUtil : MonoBehaviour
         colliders=Physics.OverlapSphere(expPos,expRadiusBig);
         foreach(Collider near in colliders)
         {
-            Rigidbody r=near.GetComponent<Rigidbody>();
+            Rigidbody r=near.GetComponentInParent<Rigidbody>();
             if(r!=null)
             {
                 r.AddExplosionForce(expForce,expPos,expRadiusBig);

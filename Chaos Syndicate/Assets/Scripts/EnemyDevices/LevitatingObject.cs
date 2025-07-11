@@ -7,6 +7,7 @@ public class LevitatingObject : MonoBehaviour
     public Transform position;
     public float t = 1;
     private float t2 = 0; //timer between accepting 2 collisions
+    public bool desactivated = false;
     
     private float springStrength = 25f;
     private float dampingStrength = 2f;
@@ -20,6 +21,8 @@ public class LevitatingObject : MonoBehaviour
 
     void Update()
     {
+        if (desactivated)
+            return;
         if (t2 > 0)
             t2 -= Time.deltaTime;
         if (t <= 0)
@@ -59,6 +62,13 @@ public class LevitatingObject : MonoBehaviour
         this.dampingStrength = dampingStrength;
         this.responsiveness = responsiveness;
     }
+
+    public void desactivateThisObj()
+    {
+        desactivated = true;
+        t2 = 2;
+        t = 0;
+    }
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.GetComponentInParent<LevitatingObject>() != null)
@@ -68,4 +78,5 @@ public class LevitatingObject : MonoBehaviour
         t2 = 2;
         t = 3;
     }
+    
 }

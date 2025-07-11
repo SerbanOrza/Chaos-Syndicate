@@ -9,6 +9,7 @@ public class ObjectsShield : MonoBehaviour
     
     public Rigidbody cubeRb;
     public Transform targetPosition;
+    public bool desactivated = false;
     public float springStrength = 25f;
     public float dampingStrength = 2f;
     public float responsiveness = 1;

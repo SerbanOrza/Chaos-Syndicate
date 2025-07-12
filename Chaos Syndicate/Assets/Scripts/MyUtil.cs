@@ -17,10 +17,7 @@ public class MyUtil : MonoBehaviour
     {
         
     }
-    void Update()
-    {
-        
-    }
+
     public void addToTrash(GameObject g,float t)
     {
         Destroy(g,t);

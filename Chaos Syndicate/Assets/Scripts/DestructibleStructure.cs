@@ -9,6 +9,7 @@ public class DestructibleStructure : MonoBehaviour,Destructible
     public DestructibleStructure[] destroyNext;
     public Groups groups;
     public float hp=100.0f;
+    public float chaos = 10;
     public float resistance = 0.2f;
     public float amplifyDamageToParts = 0.75f;
     void Start()
@@ -37,6 +38,7 @@ public class DestructibleStructure : MonoBehaviour,Destructible
             obj_to_break=groups.removeObjFromGroups(this);
         //destroy
         parts.SetActive(true);
+        ChaosController.instance.addChaos(chaos,transform.position);
         //damage next parts
         float furtherDamage = hp * amplifyDamageToParts;
         foreach(DestructibleStructure d in destroyNext)

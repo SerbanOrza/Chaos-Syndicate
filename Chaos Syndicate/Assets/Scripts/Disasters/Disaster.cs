@@ -26,6 +26,10 @@ public abstract class Disaster:Destructible
     {
         Debug.Log("impact with disaster");
     }
+    public virtual void impact(float damage)
+    {
+        impact();
+    }
     public virtual void launch(float time,Vector3 targetPos)
     {
         Debug.Log("launch");

@@ -44,7 +44,7 @@ public class MeteoriteDisaster:Disaster
         float velocityMagnitude=rb.linearVelocity.magnitude;
         float kineticEnergy=0.5f*rb.mass*velocityMagnitude*velocityMagnitude;
         float explosionForce=kineticEnergy*0.35f;//0.35 is a multiplier
-        MyUtil.instance.applyExplosionForce(thisObj.transform.position,data.expRadiusSmall,data.expRadiusBig,explosionForce);
+        MyUtil.instance.applyExplosionForce(thisObj.transform.position,data.expRadiusSmall,data.expRadiusBig,explosionForce,data.damage);
         GameObject.Destroy(thisObj);
     }
     private void breakIntoParts()

@@ -4,6 +4,7 @@ public class MyUtil : MonoBehaviour
 {
     public static MyUtil instance;
     public Transform trashPoint;
+    public Transform allGroupsPoint;
     public LayerMask destructibleLayerMask;
     void Awake()
     {
@@ -16,14 +17,15 @@ public class MyUtil : MonoBehaviour
     {
         
     }
-    void Update()
-    {
-        
-    }
+
     public void addToTrash(GameObject g,float t)
     {
         Destroy(g,t);
         g.transform.SetParent(trashPoint);
+    }
+    public void addGroupToParent(GameObject g)
+    {
+        g.transform.SetParent(allGroupsPoint);
     }
     public void applyExplosionForce(Vector3 expPos,float expRadiusSmall,float expRadiusBig,float expForce,float damage=0)
     {
@@ -36,15 +38,15 @@ public class MyUtil : MonoBehaviour
         Collider[] colliders=Physics.OverlapSphere(expPos,expRadiusSmall,destructibleLayerMask);
         foreach(Collider near in colliders)
         {
-            Rigidbody r=near.GetComponent<Rigidbody>();
+            Rigidbody r=near.GetComponentInParent<Rigidbody>();
             if(r!=null)
             {
                 //if obj is a struct, break it
-                Destructible d=near.GetComponent<Destructible>();
+                Destructible d=near.GetComponentInParent<Destructible>();
                 if(d!=null)
                 {
                     Debug.Log("detected a destructible");
-                    d.impact();
+                    d.impact(damage);
                 }
             }
         }
@@ -52,7 +54,7 @@ public class MyUtil : MonoBehaviour
         colliders=Physics.OverlapSphere(expPos,expRadiusBig);
         foreach(Collider near in colliders)
         {
-            Rigidbody r=near.GetComponent<Rigidbody>();
+            Rigidbody r=near.GetComponentInParent<Rigidbody>();
             if(r!=null)
             {
                 r.AddExplosionForce(expForce,expPos,expRadiusBig);

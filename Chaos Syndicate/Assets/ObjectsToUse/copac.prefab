@@ -303,6 +303,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2655971686133255195}
   - {fileID: 6392937053252323541}
   - {fileID: 4386410743060865242}
   - {fileID: 863187681888807594}
@@ -469,6 +470,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parts: {fileID: 4386410742862797329}
   destroyNext: []
+  groups: {fileID: 2487712895098895388}
+  hp: 14
+  resistance: 0.2
+  amplifyDamageToParts: 0.75
 --- !u!1 &1191798559627666833
 GameObject:
   m_ObjectHideFlags: 0
@@ -1306,6 +1311,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parts: {fileID: 4386410743510465546}
   destroyNext: []
+  groups: {fileID: 2487712895098895388}
+  hp: 14
+  resistance: 0.2
+  amplifyDamageToParts: 0.75
 --- !u!1 &1951110016650636460
 GameObject:
   m_ObjectHideFlags: 0
@@ -1732,6 +1741,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parts: {fileID: 4386410744424892189}
   destroyNext: []
+  groups: {fileID: 2487712895098895388}
+  hp: 14
+  resistance: 0.2
+  amplifyDamageToParts: 0.75
 --- !u!1 &2133457126927878330
 GameObject:
   m_ObjectHideFlags: 0
@@ -3533,6 +3546,10 @@ MonoBehaviour:
   - {fileID: 6573647736201154248}
   - {fileID: 2209197398078173226}
   - {fileID: 3339349885281447499}
+  groups: {fileID: 2487712895098895388}
+  hp: 30
+  resistance: 0.2
+  amplifyDamageToParts: 0.75
 --- !u!1 &4053010541994761374
 GameObject:
   m_ObjectHideFlags: 0
@@ -3685,6 +3702,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parts: {fileID: 4386410744393841079}
   destroyNext: []
+  groups: {fileID: 2487712895098895388}
+  hp: 14
+  resistance: 0.2
+  amplifyDamageToParts: 0.75
 --- !u!1 &4386410742862797329
 GameObject:
   m_ObjectHideFlags: 0
@@ -4472,6 +4493,65 @@ MonoBehaviour:
   parts: {fileID: 4386410743075752463}
   destroyNext:
   - {fileID: 6573647736201154248}
+  groups: {fileID: 2487712895098895388}
+  hp: 14
+  resistance: 0.2
+  amplifyDamageToParts: 0.75
+--- !u!1 &4894701712114769624
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2655971686133255195}
+  - component: {fileID: 2487712895098895388}
+  m_Layer: 0
+  m_Name: Groups
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2655971686133255195
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4894701712114769624}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 218506596596315407}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2487712895098895388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4894701712114769624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a62ca1ab01c2bd54da95ef440610eae2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groupsLeft: 0
+  groups:
+  - elements:
+    - {fileID: 2931056114975663401}
+    affectedGroups: 
+    affectedObjs:
+    - {fileID: 2706495709662487963}
+    - {fileID: 8669014805548862870}
+    - {fileID: 6573647736201154248}
+    - {fileID: 2209197398078173226}
+    - {fileID: 3339349885281447499}
 --- !u!1 &4911038291983686244
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ public class Bomb : MonoBehaviour
     public Rigidbody rb;
     public GameObject[] particles;
     public float expRadiusSmall,expRadiusBig,expForce;
+    public float damage = 40;
     public float t=3;
     void Awake()
     {
@@ -14,7 +15,7 @@ public class Bomb : MonoBehaviour
             rb=gameObject.GetComponent<Rigidbody>();
 
         DisasterData data=ScriptableObject.CreateInstance<DisasterData>();
-        data.initialize(false,expRadiusSmall,expRadiusBig,expForce);
+        data.initialize(false,expRadiusSmall,expRadiusBig,expForce,damage);
 
         disaster=new BombDisaster(gameObject,partsObject,rb,particles,data);
     }

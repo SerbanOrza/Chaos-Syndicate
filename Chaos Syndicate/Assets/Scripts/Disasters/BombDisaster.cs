@@ -14,14 +14,14 @@ public class BombDisaster:Disaster
     */
     public override void impact()
     {
-        if(destroyed==true)
+        if(destroyed)
             return;
         destroyed=true;
         //remove tails
         foreach(GameObject g in particles)
             MyUtil.instance.addToTrash(g,15);
         //create explosion
-        MyUtil.instance.applyExplosionForce(thisObj.transform.position,data.expRadiusSmall,data.expRadiusBig,data.expForce);
+        MyUtil.instance.applyExplosionForce(thisObj.transform.position,data.expRadiusSmall,data.expRadiusBig,data.expForce,data.damage);
         GameObject.Destroy(thisObj);
     }
 }
